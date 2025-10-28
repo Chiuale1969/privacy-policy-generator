@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Privacy Policy para Apps</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📱 Gerador de Privacy Policy</h1>
+        <p>Crie políticas de privacidade para seus apps mobile</p>
+        
+        <form id="policyForm">
+            <div class="form-group">
+                <label for="appName">Nome do App:</label>
+                <input type="text" id="appName" required placeholder="Ex: Meu App Incrível">
+            </div>
+            
+            <div class="form-group">
+                <label for="companyName">Nome da Empresa/Desenvolvedor:</label>
+                <input type="text" id="companyName" required placeholder="Ex: João Silva Dev">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">E-mail de Contato:</label>
+                <input type="email" id="email" required placeholder="contato@exemplo.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="website">Website (opcional):</label>
+                <input type="url" id="website" placeholder="https://meusite.com">
+            </div>
+            
+            <div class="form-group">
+                <label>Dados Coletados:</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="data" value="nome"> Nome</label>
+                    <label><input type="checkbox" name="data" value="email"> E-mail</label>
+                    <label><input type="checkbox" name="data" value="localizacao"> Localização</label>
+                    <label><input type="checkbox" name="data" value="dispositivo"> Dados do Dispositivo</label>
+                    <label><input type="checkbox" name="data" value="uso"> Dados de Uso</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="country">País:</label>
+                <select id="country">
+                    <option value="AO">Angola</option>
+                    <option value="BR">Brasil</option>
+                    <option value="US">Estados Unidos</option>
+                    <option value="EU">União Europeia</option>
+                    <option value="Outros">Outros</option>    
+                </select>
+            </div>
+            
+            <button type="submit">Gerar Privacy Policy</button>
+        </form>
+        
+        <div id="result" class="result hidden">
+            <h3>Sua Privacy Policy:</h3>
+            <textarea id="policyText" readonly></textarea>
+            <button onclick="copyToClipboard()">Copiar para Área de Transferência</button>
+            <button onclick="downloadPolicy()">Baixar como TXT</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
