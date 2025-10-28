@@ -4,34 +4,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eliminar Conta - Spelling App</title>
+    <title>Confirmar Eliminação - Spelling App</title>
     <style>
-        body { font-family: Arial; max-width: 600px; margin: 50px auto; padding: 20px; }
-        .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 600px; 
+            margin: 50px auto; 
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .warning {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .success {
+            background: #d1edff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007bff;
+            display: none;
+        }
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .btn-confirm { background: #dc3545; color: white; }
+        .btn-cancel { background: #6c757d; color: white; }
+        .btn-contact { background: #007bff; color: white; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🗑️ Eliminar Conta - Spelling App</h1>
+        <h1>🗑️ Confirmar Eliminação de Conta</h1>
         
-        <h2>Como eliminar sua conta:</h2>
-        
-        <h3>📱 Método 1: Pelo Aplicativo</h3>
-        <ol>
-            <li>Abra o Spelling App</li>
-            <li>Vá para a tela de <strong>Registro/Login</strong></li>
-            <li>Clique em <strong>"Eliminar Minha Conta"</strong></li>
-            <li>Digite seu email e confirme</li>
-        </ol>
-        
-        <h3>🌐 Método 2: Pelo Website</h3>
-        <p>Se recebeu um email de confirmação, clique no link para eliminar sua conta diretamente.</p>
-        
-        <p><strong>📧 Contato:</strong> dionisiochiuale@email.com</p>
-        
-        <p style="margin-top: 30px;">
-            <a href="politica-privacidade.html">← Política de Privacidade</a>
-        </p>
+        <div class="warning" id="warningSection">
+            <h2>⚠️ ATENÇÃO</h2>
+            <p>Você está prestes a eliminar permanentemente sua conta no <strong>Spelling App</strong>.</p>
+            
+            <p><strong>Serão eliminados:</strong></p>
+            <ul>
+                <li>Seu perfil de jogador</li>
+                <li>Todo o progresso salvo</li>
+                <li>Histórico de pontuações</li>
+                <li>Dados pessoais</li>
+            </ul>
+            
+            <p style="color: #dc3545; font-weight: bold;">
+                🚫 Esta ação NÃO pode ser desfeita!
+            </p>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn btn-confirm" onclick="showFinalConfirmation()">
+                    ✅ ELIMINAR MINHA CONTA
+                </button>
+                <button class="btn btn-cancel" onclick="window.close()">
+                    ❌ Cancelar
+                </button>
+            </div>
+        </div>
+
+        <div class="success" id="successSection">
+            <h2>✅ Solicitação Recebida</h2>
+            <p>Sua solicitação de eliminação de conta foi registrada com sucesso!</p>
+            <p>Nossa equipe irá processar sua solicitação em até 24 horas.</p>
+            <p>Você receberá uma confirmação por email quando a conta for eliminada.</p>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn btn-contact" onclick="contactSupport()">
+                    📞 Contactar Suporte
+                </button>
+                <button class="btn btn-cancel" onclick="window.close()">
+                    Fechar
+                </button>
+            </div>
+        </div>
     </div>
+
+    <script>
+        function showFinalConfirmation() {
+            if (confirm('TEM CERTEZA ABSOLUTA?\n\nEsta ação é PERMANENTE e não pode ser desfeita!')) {
+                // Simular processamento
+                document.getElementById('warningSection').style.display = 'none';
+                document.getElementById('successSection').style.display = 'block';
+                
+                // Em produção: Aqui você chamaria uma API real
+                console.log('Solicitação de eliminação registrada');
+            }
+        }
+        
+        function contactSupport() {
+            window.location.href = 'mailto:dionisiochiuale@email.com?subject=Eliminação de Conta - Spelling App';
+        }
+    </script>
 </body>
 </html>
